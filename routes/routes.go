@@ -3,11 +3,9 @@ package routes
 import (
 	"go-proj/database"
 	m "go-proj/model"
-	"reflect"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/basicauth"
-	"gorm.io/gorm"
 )
 
 func Router(app *fiber.App) {
@@ -110,31 +108,7 @@ func Router(app *fiber.App) {
 	})
 	v2.Get("/DataP", func(c *fiber.Ctx) error {
 		var user []m.User
-
-		type getSearch struct {
-			data string
-		}
-
-		getSG := new(getSearch)
-		getSG.data = c.Query("Search")
-		database.DBConn.Scopes(SrchEidNmeLnme(getSG)).Find(&user)
-		return c.SendString("")
+		database.DBConn.Raw("employee_id = ? OR name = ? OR Lastname = ?", c.Query("Search")).Scan(&user)
+		return c.JSON(user)
 	})
-}
-
-func SrchEidNmeLnme(v interface{}) func(*gorm.DB) {
-	var arr = make([]func(*gorm.DB) *gorm.DB, 0)
-}
-func customStructFilter(v interface{}) []func(*gorm.DB) *gorm.DB {
-	var arr = make([]func(*gorm.DB) *gorm.DB, 0)
-	vl := reflect.ValueOf(v).Elem()
-	typ := reflect.TypeOf(v).Elem()
-	for idx := 0; idx < vl.NumField(); idx++ {
-		if !vl.Field(idx).IsNil() {
-			arr = append(arr, func(d *gorm.DB) *gorm.DB {
-				return d.Where(typ.Field(idx).Tag.Get("qrstr"), vl.Field(idx).Interface())
-			})
-		}
-	}
-	return arr
 }
