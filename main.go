@@ -12,9 +12,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func main() {
-	app := fiber.New()
-
+func ConnectDB() {
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=true&loc=Local",
 		"root",
@@ -33,6 +31,10 @@ func main() {
 	}
 	db.DBConn.AutoMigrate(&m.User{})
 
+}
+func main() {
+	app := fiber.New()
+	ConnectDB()
 	routes.Router(app)
 
 	app.Listen(":3000")

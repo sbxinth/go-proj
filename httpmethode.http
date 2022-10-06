@@ -20,4 +20,4 @@ Content-Type: application/json
 GET http://localhost:3000/api/v2/Data HTTP/1.1
 
 ### get Data v2 - search
-GET http://localhost:3000/api/v2/DataP?Search=sunday HTTP/1.1
+GET http://localhost:3000/api/v2/DataP?Search=Zolo HTTP/1.1
