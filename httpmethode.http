@@ -1,0 +1,20 @@
+
+### unAuth
+GET http://localhost:3000/api/v1/test HTTP/1.1
+### auth
+GET http://testgo:6102565@localhost:3000/api/v1/test HTTP/1.1
+### create data v1 - manual
+POST  http://testgo:6102565@localhost:3000/api/v1/User HTTP/1.1
+Content-Type: application/json
+
+{
+	"employee_id": 1,
+	"name": "Sunday",   
+	"lastname": "SH",   
+	"birhtday": "14-06-46",   
+	"age": 18,   
+	"email": "sunday@icloud.com",   
+	"tel": "0611725321"   
+}
+### get Data v2 - Unauth
+GET http://localhost:3000/api/v2/Data HTTP/1.1

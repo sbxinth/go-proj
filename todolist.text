@@ -1,0 +1,18 @@
+-สร้างตารางโปรไฟล์ผู้ใช้ผ่านการ automigrate ✓
+-สร้าง APIs เก็บข้อมูลโปรไฟล์ผู้ใช้ แบบ CRUD ✓
+-จัดgruopเข้า api/v1/ และมี basic auth  กำหนด user:testgo pass:6102565 ✓
+-ยกเว้น (api Read ข้อมูล) ที่จะไม่ติด auth api/v2/ ✓
+-โปรไฟล์ผู้ใช้ประกอบไปด้วย employee_id, name ,lastname, birthday,age,email,tel ✓
+-เพิ่มข้อมูลโปรไฟล์ผู้ใช้มาจำนวนหนึ่ง(มากกว่า20ตัว) สร้างAPI GET ✓
+ ข้อมูลโชว์จำนวน ประเภทกลุ่มอายุ ✓
+GenZ(<23ปี),  
+GenY(24-41ปี), 
+GenX(42-56ปี) ,
+Baby Boomer(57-75ปี) ,
+G.I. Generation(>76ปี)
+**โชว์result คล้ายๆข้อ7** ✓
+
+
+-สร้าง API serch ข้อมูล โดยที่สามารถserchได้3ตัวคือ employee_id, name ,lastname ภายในคีย์searchตัวเดียว
+
+-ชื่อ route api ต้องไม่มีคำกิริยา**
