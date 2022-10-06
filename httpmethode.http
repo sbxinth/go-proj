@@ -14,7 +14,7 @@ Content-Type: application/json
 	"birhtday": "14-06-46",   
 	"age": 18,   
 	"email": "sunday@icloud.com",   
-	"tel": "0611725321"   
+	"tel": "0611725321"
 }
 ### get Data v2 - Unauth
 GET http://localhost:3000/api/v2/Data HTTP/1.1
