@@ -15,7 +15,6 @@ func Router(app *fiber.App) {
 	v1.Use(basicauth.New(basicauth.Config{Users: map[string]string{
 		"testgo": "6102565",
 	}}))
-	v1.Get("/test", ctrl.SendHi)
 	v1.Post("/User", ctrl.UserADD)
 	v2.Get("/Data", ctrl.GetGEN)
 	v2.Get("/DataP", ctrl.GetParm)

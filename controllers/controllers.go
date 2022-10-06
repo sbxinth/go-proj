@@ -10,6 +10,7 @@ import (
 func SendHi(c *fiber.Ctx) error { // test auth
 	return c.SendString("Hi")
 }
+
 func UserADD(c *fiber.Ctx) error { // add user
 	var user m.User
 
@@ -23,6 +24,7 @@ func UserADD(c *fiber.Ctx) error { // add user
 		"message": "data was created ! ",
 	})
 }
+
 func GetGEN(c *fiber.Ctx) error {
 	var User []m.User
 
