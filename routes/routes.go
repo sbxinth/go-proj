@@ -108,7 +108,8 @@ func Router(app *fiber.App) {
 	})
 	v2.Get("/DataP", func(c *fiber.Ctx) error {
 		var user []m.User
-		database.DBConn.Raw("employee_id = ? OR name = ? OR Lastname = ?", c.Query("Search")).Scan(&user)
+		vari := c.Query("Search")
+		database.DBConn.Raw("SELECT * FROM `users` WHERE employee_id = ? OR name = ? OR Lastname = ?", vari, vari, vari).Scan(&user)
 		return c.JSON(user)
 	})
 }
